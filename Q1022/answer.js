@@ -7,61 +7,20 @@ const c1 = parseInt(inp[1]);
 const r2 = parseInt(inp[2]);
 const c2 = parseInt(inp[3]);
 
-const arr = new Array(r2 - r1 + 1)
-for(let i = 0; i < r2 - r1 + 1; i++) {
-  arr[i] = new Array(c2 - c1 + 1)
+const val = (x, y) => {
+  if(x === 0 && y === 0){ return 1 }
+  lap = Math.max(Math.abs(x), Math.abs(y))
+  if(y === lap) { return (2 * lap + 1)**2 - (lap - x) }
+  else if(x === -lap) { return (2 * lap + 1)**2 - (2 * lap) - (lap - y)}
+  else if(y === -lap) { return (2 * lap + 1)**2 - 2* (2 * lap) - (lap + x)}
+  else { return (2 * lap + 1)**2 - 3 * (2 * lap) - (lap + y)}
 }
 
-let count = 1
-let x = -c1
-let y = -r1
-if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-  arr[y][x] = String(count)
-}
+const maxLen = Math.max(String(val(c1, r1)).length, String(val(c2, r2)).length)
 
-const lapsCount = Math.max(Math.abs(r1), Math.abs(r2), Math.abs(c1), Math.abs(c2))
-
-for(let i = 1; i <= lapsCount; i++) {
-  x = x + 1
-  count = count + 1
-  if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-    arr[y][x] = String(count)
-  }
-  for(let j = 0; j < i * 2 - 1; j++) {
-    y = y - 1
-    count = count + 1
-    if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-      arr[y][x] = String(count)
-    }
-  }
-  for(let j = 0; j < i * 2; j++) {
-    x = x - 1
-    count = count + 1
-    if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-      arr[y][x] = String(count)
-    }
-  }
-  for(let j = 0; j < i * 2; j++) {
-    y = y + 1
-    count = count + 1
-    if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-      arr[y][x] = String(count)
-    }
-  }
-  for(let j = 0; j < i * 2; j++) {
-    x = x + 1
-    count = count + 1
-    if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
-      arr[y][x] = String(count)
-    }
-  }
-}
-
-const maxLength = Math.max(arr[0][0].length, arr[r2 - r1][c2 - c1].length)
-
-for(let i = 0; i <= r2 - r1; i++) {
-  for(let j = 0; j <= c2 - c1; j++) {
-    process.stdout.write(arr[i][j].padStart(maxLength) + ' ')
+for(let i = r1; i <= r2; i++) {
+  for(let j = c1; j <=c2; j++) {
+    process.stdout.write(String(val(j, i)).padStart(maxLen) + ' ')
   }
   console.log()
 }
