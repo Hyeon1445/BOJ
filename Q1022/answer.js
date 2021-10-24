@@ -19,12 +19,7 @@ if(x >= 0 && x <= c2 - c1 && y >= 0 && y <= r2 - r1) {
   arr[y][x] = String(count)
 }
 
-let lapsCount = 0
-for(let i = 0; i < 4; i++) {
-  if(Math.abs(parseInt(inp[i])) > lapsCount) {
-    lapsCount = Math.abs(parseInt(inp[i]))
-  }
-}
+const lapsCount = Math.max(Math.abs(r1), Math.abs(r2), Math.abs(c1), Math.abs(c2))
 
 for(let i = 1; i <= lapsCount; i++) {
   x = x + 1
@@ -62,8 +57,7 @@ for(let i = 1; i <= lapsCount; i++) {
   }
 }
 
-
-const maxLength = arr[0][0].length > arr[r2 - r1][c2 - c1].length ? arr[0][0].length : arr[r2 - r1][c2 - c1].length
+const maxLength = Math.max(arr[0][0].length, arr[r2 - r1][c2 - c1].length)
 
 for(let i = 0; i <= r2 - r1; i++) {
   for(let j = 0; j <= c2 - c1; j++) {
