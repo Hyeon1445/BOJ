@@ -1,5 +1,5 @@
-// let inp = parseInt(require('fs').readFileSync('/dev/stdin').toString().trim())
-let inp = parseInt(require('fs').readFileSync('Q1094/input.txt').toString().trim())
+// let inp = parseInt(require('fs').readFileSync('/dev/stdin'))
+let inp = parseInt(require('fs').readFileSync('Q1094/input.txt'))
 
 // 이진수
 
