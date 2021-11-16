@@ -18,7 +18,7 @@ while(1) {
   let nextDir = [
     {
       x: x,
-      y: y + 1,
+      y: y - 1,
       // North(0)
     },
     {
@@ -28,7 +28,7 @@ while(1) {
     },
     {
       x: x,
-      y: y - 1,
+      y: y + 1,
       // South(2)
     },
     {
@@ -38,7 +38,7 @@ while(1) {
     },
   ]
   direction = direction + 4
-  for(let i = 0; i < 4; i++) {
+  for(let i = 1; i <= 4; i++) {
     // console.log('dir', (direction - i) % 4)
     // console.log(nextDir[(direction - i) % 4].y, nextDir[(direction - i) % 4].x)
     if(!arr[nextDir[(direction - i) % 4].y][nextDir[(direction - i) % 4].x]) {
@@ -48,8 +48,9 @@ while(1) {
       console.log(x,y,cnt)
       break
     }
-    if(i === 3 && arr[nextDir[(direction - i) % 4].y][nextDir[(direction - i) % 4].x]) {
+    if(i === 4) {
       isCompleted = true
+      break
     }
   }
   if(isCompleted) { break }
