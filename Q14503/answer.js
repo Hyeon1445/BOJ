@@ -13,7 +13,7 @@ let isCompleted = false
 
 
 while(1) {
-  arr[y][x] = 1
+  arr[y][x] = 2
   cnt = cnt + 1
   let nextDir = [
     {
@@ -49,6 +49,7 @@ while(1) {
       break
     }
     if(i === 4) {
+      // 조건 c, d 추가!
       isCompleted = true
       break
     }
