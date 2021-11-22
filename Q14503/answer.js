@@ -1,5 +1,3 @@
-const { dir } = require('console')
-
 const inp = require('fs').readFileSync('Q14503/input.txt').toString().trim().split('\r\n')
 // const inp = require('fs').readFileSync('/dev/stdin').toString().trim().split('\r\n')
 const arr = inp.slice(2, inp.length).map(a => (a.split(' ').map(Number)))
