@@ -1,0 +1,10 @@
+const inputs = require('fs')
+  .readFileSync('Q11650/input.txt')
+  .toString()
+  .trim()
+  .split('\r\n')
+  .splice(1)
+  .map(inp => inp.split(' ').map(num => +num))
+
+inputs.sort((a, b) => a[0] === b[0] ? a[1] - b[1] : a[0] - b[0])
+console.log(inputs.map(position => position.join(' ')).join('\n'))
