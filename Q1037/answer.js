@@ -1,0 +1,6 @@
+const inputs = require('fs').readFileSync('Q1037/input.txt').toString().trim().split('\r\n')[1].split(' ').map(num => +num)
+inputs.sort((a, b) => a - b)
+const GCD = (n1, n2) => n1 % n2 === 0 ? n2 : GCD(n2, n1 % n2)
+const LCM = (inputs) => inputs.reduce((n1, n2) => n1 * n2 / GCD(n1, n2))
+const LCMValue = LCM(inputs)
+console.log(LCMValue === inputs[inputs.length - 1] ? LCMValue * inputs[0] : LCMValue)
