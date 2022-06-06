@@ -1,0 +1,5 @@
+const [n1, n2] = require('fs').readFileSync('Q2609/input.txt').toString().trim().split(' ').map(num => +num)
+const GCD = (n1, n2) => n1 % n2 === 0 ? n2 : GCD(n2, n1 % n2)
+const LCM = (n1, n2) => n1 * n2 / GCD(n1, n2)
+console.log(GCD(n1, n2))
+console.log(LCM(n1, n2))
