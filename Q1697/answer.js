@@ -24,3 +24,4 @@ while(queue.length) {
   }
 }
 console.log(arr[K] - 1)
+// bfs
