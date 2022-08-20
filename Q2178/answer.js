@@ -21,3 +21,5 @@ const bfs = (x, y) => {
 
 bfs(0, 0, 1)
 console.log(arr[N - 1][M - 1] - 1)
+
+// 시간복잡도: dfs >>> bfs
